@@ -1,0 +1,41 @@
+{
+  "name": "lastfm-discord-status",
+  "version": "0.0.1",
+  "description": "lastfm",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "node scripts/copy-file.js && tsc",
+    "start": "npm run build && NODE_ENV=development electron ./dist/index.js",
+    "release": "npm exec electron-builder --mac --arm64",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sho-darp",
+  "license": "MIT",
+  "type": "commonjs",
+  "build": {
+    "productName": "Lastfm Discord Status",
+    "directories": {
+      "output": "build"
+    },
+    "compression": "maximum",
+    "mac": {
+      "extendInfo": {
+        "LSUIElement": true
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.6",
+    "electron": "^27.0.4",
+    "electron-builder": "^24.6.4",
+    "glob": "^10.3.10",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/discord-rpc": "^4.0.8",
+    "discord-rpc": "^4.0.1",
+    "dotenv": "^16.3.1",
+    "electron-store": "^8.1.0",
+    "lastfm": "^0.9.4"
+  }
+}
